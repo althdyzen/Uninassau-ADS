@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                min-height: 100vh;
+
+                background-color: antiquewhite;
+            }
+            table,
+            th,
+            td {
+                border: 1px solid black;
+                font-family: system-ui;
+            }
+            #name {
+                width: 900px;
+                text-align: start;
+            }
+            h1 {
+                color: red;
+                font-size: 40px;
+            }
+            #info {
+                vertical-align: top;
+            }
+        </style>
+        <title>Aula - Table</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th rowspan="2"><img width="500px" src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500s" alt="" /></th>
+
+                <th id="name" colspan="2">
+                    <h1>Mr. Puppy</h1>
+                    <br />
+                    <span>Estudante de programação</span>
+                </th>
+            </tr>
+
+            <tr id="info">
+                <td>
+                    Endereço:
+                    <br />
+                    Rua dos Bobos, 0
+                    <br />
+                    Rua Sem Nome, 1
+                </td>
+                <td>
+                    Instagram: https://...
+                    <br />
+                    Youtube: https://...
+                    <br />
+                    Twitter: https://...
+                    <br />
+                    Email: https://...
+                    <br />
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
