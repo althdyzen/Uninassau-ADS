@@ -3,7 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aula - Table</title>
         <style>
+            :root {
+                font-family: system-ui;
+            }
             * {
                 box-sizing: border-box;
                 margin: 0;
@@ -16,56 +20,62 @@
 
                 min-height: 100vh;
 
-                background-color: antiquewhite;
+                background-color: blanchedalmond;
             }
             table,
             th,
             td {
-                border: 1px solid black;
-                font-family: system-ui;
+                border: 1px solid #000;
+                border-collapse: collapse;
             }
-            #name {
-                width: 900px;
-                text-align: start;
+            #name,
+            #info td {
+                padding: 5px;
+            }
+            img {
+                display: block;
             }
             h1 {
                 color: red;
-                font-size: 40px;
+            }
+            #name {
+                width: 800px;
+                text-align: start;
             }
             #info {
                 vertical-align: top;
             }
+            #address {
+                font-weight: bold;
+            }
         </style>
-        <title>Aula - Table</title>
     </head>
     <body>
         <table>
             <tr>
-                <th rowspan="2"><img width="500px" src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500s" alt="" /></th>
-
+                <th id="image" rowspan="2"><img src="https://i.etsystatic.com/iap/1ce921/3851905590/iap_640x640.3851905590_9wi4e3df.jpg?version=0" alt="" /></th>
                 <th id="name" colspan="2">
                     <h1>Mr. Puppy</h1>
-                    <br />
-                    <span>Estudante de programação</span>
+                    <span>Segurança</span>
                 </th>
             </tr>
 
             <tr id="info">
                 <td>
-                    Endereço:
+                    <span id="address">Endereço:</span>
                     <br />
-                    Rua dos Bobos, 0
+                    <span>Rua dos Bobos, 0</span>
                     <br />
-                    Rua Sem Nome, 1
+                    <span>Rua Sem Nome, 1</span>
                 </td>
                 <td>
-                    Instagram: https://...
+                    <span>Instagram: https://...</span>
                     <br />
-                    Youtube: https://...
+                    <span>Youtube: https://...</span>
                     <br />
-                    Twitter: https://...
+                    <span>Twitter: https://...</span>
                     <br />
-                    Email: https://...
+                    <span>Email: https://...</span>
                     <br />
                 </td>
             </tr>
