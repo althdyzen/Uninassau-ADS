@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    font-family: system-ui, -apple-system;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    min-height: 100vh;
+
+    background-color: rgba(255, 255, 0, 0.15);
+}
+
+table,
+th,
+td {
+    border: 1px solid #000;
+    border-collapse: collapse;
+    background-color: yellow;
+}
+
+th,
+td {
+    text-align: center;
+}
+
+.no-bgk {
+    background-color: #fff;
+}
