@@ -2,6 +2,73 @@ package Ex3;
 
 import java.util.Scanner;
 
+class UrnaEletronica {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int quantidadeCandidatos = 0;
+
+        while (quantidadeCandidatos <= 0) {
+            System.out.println("Quantos candidatos deseja cadastrar? ");
+
+            if (scanner.hasNextInt()) {
+                quantidadeCandidatos = scanner.nextInt();
+
+                if (quantidadeCandidatos <= 0) {
+                    System.out.println("Por favor, insira um número maior que 0.");
+                }
+            } else {
+                System.out.println("Entrada inválida. Por favor, insira um número inteiro.");
+                scanner.next();
+            }
+        }
+
+        scanner.nextLine();
+
+        Candidato[] candidatos = new Candidato[quantidadeCandidatos];
+
+        for (int i = 0; i < quantidadeCandidatos; i++) {
+            System.out.println();
+            System.out.println("Cadastramento número: " + (i + 1));
+            System.out.println("Digite o número do candidato: ");
+            int numero = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Digite o nome do candidato: ");
+            String nome = scanner.nextLine();
+            System.out.println();
+
+            candidatos[i] = new Candidato(numero, nome);
+        }
+
+        System.out.println("Quantos votos serão lidos? ");
+        int quantidadeVotos = scanner.nextInt();
+
+        for (int i = 0; i < quantidadeVotos; i++) {
+            System.out.println("Digite o número do candidato para votar: ");
+            int numeroVoto = scanner.nextInt();
+            boolean candidatoEncontrado = false;
+
+            for (Candidato candidato : candidatos) {
+                if (candidato.getNumero() == numeroVoto) {
+                    candidato.incrementarVoto();
+                    candidatoEncontrado = true;
+                    break;
+                }
+            }
+
+            if (!candidatoEncontrado) {
+                System.out.println("Candidato não encontrado: " + numeroVoto);
+            }
+        }
+
+        System.out.println("\nResultado da votação:");
+        for (Candidato candidato : candidatos) {
+            candidato.exibir();
+        }
+
+        scanner.close();
+    }
+}
+
 class Candidato {
     private int numero;
     private String nome;
@@ -29,63 +96,10 @@ class Candidato {
         this.votos++;
     }
 
-    @Override
-    public String toString() {
-        return numero + " - " + nome + " - " + votos;
-    }
-}
-
-public class UrnaEletronica {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Cadastramento de candidatos
-        System.out.print("Quantos candidatos deseja cadastrar? ");
-        int quantidadeCandidatos = scanner.nextInt();
-        scanner.nextLine(); // Consumir a nova linha
-
-        Candidato[] candidatos = new Candidato[quantidadeCandidatos];
-
-        for (int i = 0; i < quantidadeCandidatos; i++) {
-            System.out.println("Cadastramento número: " + (i + 1));
-            System.out.print("Digite o número do candidato: ");
-            int numero = scanner.nextInt();
-            scanner.nextLine(); // Consumir a nova linha
-            System.out.print("Digite o nome do candidato: ");
-            String nome = scanner.nextLine();
-            System.out.println("");
-
-            candidatos[i] = new Candidato(numero, nome);
-        }
-
-        // Leitura dos votos
-        System.out.print("Quantos votos serão lidos? ");
-        int quantidadeVotos = scanner.nextInt();
-
-        for (int i = 0; i < quantidadeVotos; i++) {
-            System.out.print("Digite o número do candidato para votar: ");
-            int numeroVoto = scanner.nextInt();
-            boolean candidatoEncontrado = false;
-
-            for (Candidato candidato : candidatos) {
-                if (candidato.getNumero() == numeroVoto) {
-                    candidato.incrementarVoto();
-                    candidatoEncontrado = true;
-                    break;
-                }
-            }
-
-            if (!candidatoEncontrado) {
-                System.out.println("Candidato não encontrado: " + numeroVoto);
-            }
-        }
-
-        // Listagem dos candidatos e seus votos
-        System.out.println("\nResultado da votação:");
-        for (Candidato candidato : candidatos) {
-            System.out.println(candidato);
-        }
-
-        scanner.close();
+    public void exibir() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Numero: " + numero);
+        System.out.println("Quantidade de votos: " + votos);
+        System.out.println("--------------------------------");
     }
 }

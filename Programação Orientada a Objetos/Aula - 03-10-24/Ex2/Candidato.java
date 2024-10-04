@@ -1,30 +1,31 @@
 package Ex2;
 
 class Candidato {
-    String name;
-    int number;
-    int votos = 53;
+    private String nome;
+    private int numero;
+    private int votos;
 
-    public Candidato(String nome, int numero) {
-        this.name = nome;
-        this.number = numero;
-    }
-
-    public void addVote() {
-        this.votos++;
+    public Candidato(int num, String name) {
+        numero = num;
+        nome = name;
+        votos = 0;
     }
 
     public void exibir() {
-        System.out.println("O candidato com nome: " + this.name + ", que você criou tem " + this.votos + " votos");
-        System.out.println("Você acabou de votar nele");
-        System.out.println("Número anterior de votos: " + this.votos);
+        System.out.println();
+        System.out.println("Candidato com nome: " + nome);
+        System.out.println("Número: " + numero);
+        System.out.println("Votos: " + votos);
+        System.out.println();
+    }
 
-        addVote();
-        System.out.println("Número atual de votos: " + this.votos);
+    public void incrementVotos() {
+        votos++;
     }
 
     public static void main(String[] args) {
-        Candidato c = new Candidato("Carlos", 55);
+        Candidato c = new Candidato(55, "Pedro");
+        c.incrementVotos();
         c.exibir();
     }
 }
