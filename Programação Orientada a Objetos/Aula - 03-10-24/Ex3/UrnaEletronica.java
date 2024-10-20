@@ -1,45 +1,49 @@
 package Ex3;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 class UrnaEletronica {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int quantidadeCandidatos = 0;
+    private static Scanner scanner = new Scanner(System.in);
 
-        while (quantidadeCandidatos <= 0) {
-            System.out.println("Quantos candidatos deseja cadastrar? ");
+    public static int getValidNumber(String mensagem) {
+        int numero = 0;
+        boolean numeroValido = false;
 
-            if (scanner.hasNextInt()) {
-                quantidadeCandidatos = scanner.nextInt();
+        while (!numeroValido) {
+            System.out.println(mensagem);
 
-                if (quantidadeCandidatos <= 0) {
-                    System.out.println("Por favor, insira um número maior que 0.");
-                }
-            } else {
-                System.out.println("Entrada inválida. Por favor, insira um número inteiro.");
+            try {
+                numero = scanner.nextInt();
+
+                numeroValido = true;
+            } catch (InputMismatchException e) {
+                System.err.println("Entrada inválida. Por favor, insira um número inteiro maior que 0.");
+
                 scanner.next();
             }
         }
 
-        scanner.nextLine();
+        return numero;
+    }
+
+    public static void main(String[] args) {
+        int quantidadeCandidatos = getValidNumber("Quantos candidatos deseja cadastrar?");
 
         Candidato[] candidatos = new Candidato[quantidadeCandidatos];
 
         for (int i = 0; i < quantidadeCandidatos; i++) {
-            System.out.println();
             System.out.println("Cadastramento número: " + (i + 1));
             System.out.println("Digite o número do candidato: ");
             int numero = scanner.nextInt();
             scanner.nextLine();
             System.out.println("Digite o nome do candidato: ");
             String nome = scanner.nextLine();
-            System.out.println();
 
             candidatos[i] = new Candidato(numero, nome);
         }
 
-        System.out.println("Quantos votos serão lidos? ");
+        System.out.println("\nQuantos votos serão lidos? ");
         int quantidadeVotos = scanner.nextInt();
 
         for (int i = 0; i < quantidadeVotos; i++) {
@@ -56,6 +60,7 @@ class UrnaEletronica {
             }
 
             if (!candidatoEncontrado) {
+                i--;
                 System.out.println("Candidato não encontrado: " + numeroVoto);
             }
         }
