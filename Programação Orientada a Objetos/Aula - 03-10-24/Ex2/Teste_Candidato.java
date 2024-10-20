@@ -1,11 +1,11 @@
 package Ex2;
 
-class Candidato {
+class Teste_Candidato {
     private String nome;
     private int numero;
     private int votos;
 
-    public Candidato(int num, String name) {
+    public Teste_Candidato(int num, String name) {
         numero = num;
         nome = name;
         votos = 0;
@@ -24,7 +24,7 @@ class Candidato {
     }
 
     public static void main(String[] args) {
-        Candidato c = new Candidato(55, "Pedro");
+        Teste_Candidato c = new Teste_Candidato(55, "Pedro");
         c.incrementVotos();
         c.exibir();
     }
