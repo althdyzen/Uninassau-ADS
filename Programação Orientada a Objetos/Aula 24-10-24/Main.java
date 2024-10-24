@@ -1,4 +1,5 @@
 class Main {
+    // 1 - Metodo
     public static void main(String[] args) {
 
         Aluno[] notas = new Aluno[20];
@@ -12,6 +13,7 @@ class Main {
         }
     }
 
+    // 2 - Metodo
     // public static void main(String[] args) {
 
     // double[] notas = new double[20];
@@ -26,6 +28,7 @@ class Main {
     // }
     // }
 
+    // 3 - Metodo
     // public static void main(String[] args) {
     // double[] notas = { 9.2, 7.5, 2.7, 5.5, 8.8, 1.9, 4.4, 8.2, 5.6, 3.9, 8.0,
     // 4.3, 6.1, 4.5, 3.3, 7.1, 4.4, 6.7,
