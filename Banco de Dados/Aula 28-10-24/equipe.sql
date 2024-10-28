@@ -77,12 +77,14 @@ ORDER BY nome DESC;
 SELECT nome, dt_nasc, YEAR(CURDATE()) - YEAR(dt_nasc) AS idade
 FROM jogador;
 
+-- exibe nome da equipe, nome e posição do jogador da tabela equipe com interseção na tabela jogador, que tem a equipe seja o NAUTICO e o jogador seja LATERAL
 SELECT equipe.nome, jogador.nome, jogador.posicao
 FROM equipe
 LEFT JOIN jogador
 ON equipe.codigo = jogador.equipe
 WHERE equipe.nome='NAUTICO' AND posicao='LATERAL'
 
+-- exibe todos as linhas da tabela jogadores onde tem a idade menor que 40 anos
 SELECT *, YEAR(CURDATE()) - YEAR(dt_nasc) AS idade
 FROM jogador
 WHERE YEAR(CURDATE()) - YEAR(dt_nasc) < 40
