@@ -48,7 +48,14 @@ figcaption {
 
 video {
     width: 600px;
+    width: 50%;
     border-radius: 0.5rem;
+}
+
+#videos > * {
+    width: 45%;
+    /* margin: 0;
+    padding: 0; */
 }
 
 #imagens {
