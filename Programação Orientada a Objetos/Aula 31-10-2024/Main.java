@@ -1,15 +1,13 @@
 import java.util.Scanner;
 
 public class Main {
-    /**
-     * This Java program takes input for 5 numbers, determines if each number is
-     * even or odd, finds the
-     * smallest value, calculates the average, and displays the results.
-     */
+    static int media;
+    static int menorValor;
+
     public static void main(String[] args) {
         int[] numbers = preencherArray(new int[5]);
-        int menorValor = encontrarMenorValor(numbers);
-        int media = encontrarMedia(numbers);
+        menorValor = encontrarMenorValor(numbers);
+        media = encontrarMedia(numbers);
 
         separador();
 
@@ -17,14 +15,22 @@ public class Main {
 
         separador();
 
-        System.out.println("Menor valor é " + menorValor);
+        exibirMenorValor(menorValor);
 
         separador();
 
+        exibirMedia();
+
+        separador();
+
+    }
+
+    public static void exibirMedia() {
         System.out.println("Media é " + media);
+    }
 
-        separador();
-
+    public static void exibirMenorValor(int n) {
+        System.out.println("Menor valor é " + n);
     }
 
     public static void exibirArray(int[] array) {
@@ -71,14 +77,12 @@ public class Main {
 
     public static int encontrarMedia(int[] array) {
         int soma = 0;
-        int media = 0;
 
         for (int i = 0; i < array.length; i++) {
             soma += array[i];
         }
 
-        media = soma / array.length;
 
-        return media;
+        return soma / array.length;
     }
 }
