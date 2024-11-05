@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>Pagamento</h1>
+        <form action="">
+            <div class="inputContainer">
+                <label for="card">Número do cartâo de credito:</label>
+                <input name="card" type="text" />
+            </div>
+            <!-- <br /> -->
+            <div class="inputContainer bandeira">
+                <label for="bandeira">Selecione o seu cartâo:</label>
+                <!-- <input type="text" /> -->
+                <div class="inputContainer">
+                    <input name="visa" type="radio" value="A" />
+                    <label for="visa">Visa</label>
+                </div>
+                <div class="inputContainer">
+                    <input name="Mastercard" type="radio" value="A" />
+                    <label for="Mastercard">Visa</label>
+                </div>
+                <div class="inputContainer">
+                    <input name="Hipercard" type="radio" value="A" />
+                    <label for="Hipercard">Visa</label>
+                </div>
+            </div>
+            <!-- <br /> -->
+            <div class="inputContainer">
+                <label for="expires">Expira em:</label>
+                <input name="expires" type="text" />
+            </div>
+            <!-- <br /> -->
+            <div class="inputContainer">
+                <label for="value">Valor:</label>
+                <input name="value" type="text" />
+            </div>
+
+            <!-- <br /> -->
+            <button type="reset">Limpar</button>
+            <button type="submit">Enviar</button>
+        </form>
+    </body>
+</html>

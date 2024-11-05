@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    /* margin: 0;
+    padding: 0; */
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-flow: column;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bandeira {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}
