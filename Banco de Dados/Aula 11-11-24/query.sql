@@ -55,10 +55,11 @@ VALUES
     (DEFAULT, 3, 3, 3, '2023-01-23'),
     (DEFAULT, 4, 4, 4, '2023-01-24');
 
--- SELECT * FROM pedido;
 SELECT
     c.nome AS cliente,
-    SUM(p.quantidade * l.preco) AS total_pedidos
+    SUM(p.quantidade * l.preco) AS total_pedidos,
+    SUM(p.quantidade * l.preco / p.quantidade) AS media,
+    p.quantidade AS quantidade
 FROM
     clientes c
     JOIN pedidos p ON c.id = p.id_cliente
