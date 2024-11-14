@@ -1,9 +1,39 @@
+import java.text.NumberFormat;
+
 class Main {
-    public static void main(String[] args) {
-        System.out.println("Bubble sort: ");
-        testBubbleSort(args);
-        System.out.println("\nSelection sort: ");
-        testSelectionSort(args);
+    public static void main(String argv[]) {
+        String fx;
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        nf.setMaximumFractionDigits(9);
+        nf.setMinimumIntegerDigits(1);
+        double r = 0;
+        int[] vetor5 = criaVetor(100000);
+        int[] vetor6 = new int[100000];
+        // copia os elementos do vetor 5 para o outro vetor.
+        for (int i = 0; i < vetor5.length; i++) {
+            vetor6[i] = vetor5[i];
+        }
+        long t10 = System.nanoTime();
+        ordenacao_bubbleSort(vetor5);
+        long t11 = System.nanoTime();
+        r = ((double) (t11 - t10)) / 1000000000;
+        fx = nf.format(r);
+        System.out.println("Tempo decorrido Bubble Sort: 100000 elementos " + fx + " segundos");
+
+        long t12 = System.nanoTime();
+        ordenacao_Selection_Sort(vetor6);
+        long t13 = System.nanoTime();
+        r = ((double) (t13 - t12)) / 1000000000;
+        fx = nf.format(r);
+        System.out.println("Tempo decorrido Selection Sort: 100000 elementos" + fx + " segundos");
+    }
+
+    public static int[] criaVetor(int tamanho) {
+        int[] v = new int[tamanho];
+        for (int i = 0; i < tamanho; i++) {
+            v[i] = (int) (100 * Math.random() + 1);
+        }
+        return v;
     }
 
     public static void testBubbleSort(String argv[]) {
@@ -50,6 +80,7 @@ class Main {
             min = out; // minimum
             for (in = out + 1; in < nElems; in++) // loop interno
                 if (vetor[in] < vetor[min]) // se min é maior,
+
                     min = in; // temos um novo mínimo
             // Coloca o novo mínimo no seu lugar correto no vetor
             temp = vetor[out];
