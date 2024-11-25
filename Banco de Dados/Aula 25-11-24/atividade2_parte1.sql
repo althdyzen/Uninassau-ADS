@@ -27,6 +27,8 @@ SELECT
 FROM
     times;
 
+USE bancotimes;
+
 -- Mostre o nome, salario, data de nascimento de jogadores, do mais velho para o mais novo
 SELECT
     nome,
@@ -48,7 +50,7 @@ WHERE
 
 -- Mostre o valor total dos times
 SELECT
-    MAX(valor) AS valor_total_times
+    SUM(valor) AS valor_total_times
 FROM
     times;
 
