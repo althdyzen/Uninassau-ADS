@@ -1,7 +1,9 @@
+-- Crie uma base de dados campeonato
 CREATE DATABASE campeonato;
 
 USE campeonato;
 
+-- Crie a tabela times (idtimes, nome, valor, anodefundacao)
 CREATE TABLE
     times (
         id_times TINYINT NOT NULL AUTO_INCREMENT,
@@ -11,6 +13,7 @@ CREATE TABLE
         PRIMARY KEY (id_times)
     );
 
+-- Crie a tabela jogadores (idjogadores, nome, salario, datanascimento, idtimes)
 CREATE TABLE
     jogadores (
         id_jogadores TINYINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -21,6 +24,7 @@ CREATE TABLE
         FOREIGN KEY (id_times) REFERENCES times (id_times)
     );
 
+-- Insira na tabela 5 times
 INSERT INTO
     times (nome, valor, ano_de_fundacao)
 VALUES
@@ -30,6 +34,7 @@ VALUES
     ('Time D', 2500000, '1980-11-30'),
     ('Time E', 3000000, '2000-03-10');
 
+-- Insira na tabela 10 jogadores
 INSERT INTO
     jogadores (nome, salario, dat_nasc, id_times)
 VALUES
