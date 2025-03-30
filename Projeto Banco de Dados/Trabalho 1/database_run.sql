@@ -1,0 +1,1 @@
+SOURCE /database_template.sql;
