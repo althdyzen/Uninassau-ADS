@@ -2,8 +2,8 @@ USE e_commerce;
 
 DELIMITER //
 -- Produtos mais vendidos
-DROP PROCEDURE IF EXISTS mais_vendidos;
-CREATE PROCEDURE mais_vendidos(IN quantidade INT)
+DROP PROCEDURE IF EXISTS MaisVendidos;
+CREATE PROCEDURE MaisVendidos(IN quantidade INT)
 BEGIN
     SELECT
         p.id_produto,
@@ -22,8 +22,8 @@ BEGIN
 END //
 
 -- Clientes que mais compraram no último mês:
-DROP PROCEDURE IF EXISTS clientes_mais_compraram_ultimo_mes;
-CREATE PROCEDURE clientes_mais_compraram_ultimo_mes()
+DROP PROCEDURE IF EXISTS ClientesQueMaisCompraram;
+CREATE PROCEDURE ClientesQueMaisCompraram()
 BEGIN
     SELECT
         u.nome,
@@ -41,8 +41,8 @@ BEGIN
 END //
 
 -- Estoque baixo
-DROP PROCEDURE IF EXISTS estoque_baixo;
-CREATE PROCEDURE estoque_baixo(IN num INT)
+DROP PROCEDURE IF EXISTS EstoqueBaixo;
+CREATE PROCEDURE EstoqueBaixo(IN num INT)
 BEGIN
     SELECT
         nome,
@@ -56,8 +56,8 @@ BEGIN
 END //
 
 -- Faturamento por período
-DROP PROCEDURE IF EXISTS faturamento_periodo;
-CREATE PROCEDURE faturamento_periodo(IN inicio DATE, IN termino DATE)
+DROP PROCEDURE IF EXISTS FaturamentoPeriodo;
+CREATE PROCEDURE FaturamentoPeriodo(IN inicio DATE, IN termino DATE)
 BEGIN
     SELECT
         inicio AS Início, termino AS Término, SUM(pd.preco * ip.quantidade) AS Faturamento
@@ -70,8 +70,8 @@ BEGIN
 END //
 
 -- Média das avaliações por produto
-DROP PROCEDURE IF EXISTS media_nota_pedido;
-CREATE PROCEDURE media_nota_pedido(IN produto VARCHAR(100))
+DROP PROCEDURE IF EXISTS NotaMediaPedido;
+CREATE PROCEDURE NotaMediaPedido(IN produto VARCHAR(100))
 BEGIN
     SELECT
         a.id_produto,
@@ -87,29 +87,29 @@ BEGIN
 END //
 DELIMITER ;
 
--- Chama mais_vendidos()
+-- Chama MaisVendidos()
 -- Valores possíveis:
 --     INT -> Retorna produtos vendidos até a quantidade especificada.
 --     NULL -> Retorna todos os produtos, independentemente da quantidade vendida.
-CALL mais_vendidos(1);
+CALL MaisVendidos(1);
 
--- Chama clientes_mais_compraram_ultimo_mes()
+-- Chama ClientesQueMaisCompraram()
 -- Valores possíveis: Nenhum
-CALL clientes_mais_compraram_ultimo_mes();
+CALL ClientesQueMaisCompraram();
 
--- Chama estoque_baixo()
+-- Chama EstoqueBaixo()
 -- Valores possíveis:
 --     INT -> Retorna produtos com estoque abaixo do limite especificado.
 --     NULL -> Retorna todos os produtos com estoque baixo.
-CALL estoque_baixo(NULL);
+CALL EstoqueBaixo(NULL);
 
--- Chama faturamento_periodo()
+-- Chama FaturamentoPeriodo()
 -- Valores possíveis:
 --     (DATE, DATE) -> Retorna faturamento entre as datas especificadas.
 --     (NULL, NULL) -> Retorna faturamento de todo o período.
-CALL faturamento_periodo("2025-03-15", "2025-03-20");
+CALL FaturamentoPeriodo("2025-03-15", "2025-03-20");
 
--- Chama media_nota_pedido()
+-- Chama NotaMediaPedido()
 -- Valores de produtos possíveis:
 --     VARCHAR(100) -> Retorna a média de avaliações para o produto especificado.
 --         Notebook Dell
@@ -123,4 +123,4 @@ CALL faturamento_periodo("2025-03-15", "2025-03-20");
 --         Smartwatch Xiaomi
 --         HD Externo 1TB
 --     NULL -> Retorna a média de avaliações de todos os produtos.
-CALL media_nota_pedido("Notebook Dell");
+CALL NotaMediaPedido("Notebook Dell");

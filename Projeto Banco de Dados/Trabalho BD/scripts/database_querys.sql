@@ -51,21 +51,23 @@ ORDER BY
 
 
 -- Faturamento por período
+SET @inicio =  "2025-03-15";
+SET @termino =  "2025-03-30";
 SELECT
-    "2025-03-15" AS Início, "2025-03-20" AS Término, SUM(pd.preco * ip.quantidade) AS Faturamento
+    @inicio AS Início, @termino AS Término, SUM(pd.preco * ip.quantidade) AS Faturamento
 FROM
     Pedidos p
     JOIN Itens_Pedido ip ON p.id_pedido = ip.id_pedido
     JOIN Produtos pd ON ip.id_produto = pd.id_produto
 WHERE
-    p.data_pedido BETWEEN "2025-03-15" AND "2025-03-20";
+    p.data_pedido BETWEEN @inicio AND @termino;
 
 
 -- Média das avaliações por produto
 SELECT
     a.id_produto,
     p.nome,
-    FORMAT(AVG(a.nota), 1) AS "Média de avaliações"
+    FORMAT(AVG(a.nota), 1) AS "média"
 FROM
     Avaliacoes a
     JOIN Produtos p ON a.id_produto = p.id_produto
