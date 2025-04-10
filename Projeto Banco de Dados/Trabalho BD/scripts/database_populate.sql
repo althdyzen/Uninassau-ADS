@@ -19,12 +19,12 @@ INSERT INTO Produtos (nome, descricao, categoria, preco, estoque, id_fornecedor)
 ('Smartphone Samsung', 'Galaxy S21',                               'Eletrônicos',  2800.00, 30, 2),
 ('Teclado Mecânico',   'Teclado RGB para gamers',                  'Periféricos', 250.00,  50, 3),
 ('Mouse Logitech',     'Mouse sem fio',                            'Periféricos', 150.00,  40, 3),
-('Monitor LG',         'Monitor 24 polegadas Full HD',             'Eletrônicos', 900.00,  25, 4),
-('Cadeira Gamer',      'Cadeira ergonômica para jogos',            'Móveis',      1200.00, 20, 5),
-('Impressora HP',      'Impressora multifuncional',                'Eletrônicos', 600.00,  10, 6),
-('Fone de Ouvido JBL', 'Fone bluetooth com cancelamento de ruído', 'Áudio',       400.00,  35, 7),
-('Smartwatch Xiaomi',  'Relógio inteligente Mi Band',              'Wearables',   300.00,  50, 8),
-('HD Externo 1TB',     'Armazenamento portátil',                   'Acessórios',  350.00,  15, 9);
+('Monitor LG',         'Monitor 24 polegadas Full HD',             'Eletrônicos', 900.00,  25, 2),
+('Cadeira Gamer',      'Cadeira ergonômica para jogos',            'Móveis',      1200.00, 20, 2),
+('Impressora HP',      'Impressora multifuncional',                'Eletrônicos', 600.00,  10, 1),
+('Fone de Ouvido JBL', 'Fone bluetooth com cancelamento de ruído', 'Áudio',       400.00,  35, 2),
+('Smartwatch Xiaomi',  'Relógio inteligente Mi Band',              'Wearables',   300.00,  50, 3),
+('HD Externo 1TB',     'Armazenamento portátil',                   'Acessórios',  350.00,  15, 3);
 
 -- Pedidos
 INSERT INTO Pedidos (id_usuario, data_pedido, status) VALUES
@@ -93,6 +93,6 @@ INSERT INTO Avaliacoes (id_usuario, id_produto, nota, comentario) VALUES
 
 -- Fornecedores
 INSERT INTO `Fornecedores` (nome, contato) VALUES
-('Fornecedor A', 'contato@fornecedora.com'),
-('Fornecedor B', 'contato@fornecedorB.com'),
-('Fornecedor C', 'contato@fornecedorC.com');
+('Terabyte', 'terabyte@email.com'),
+('Kabum', 'kabum@email.com'),
+('Pichau', 'pichau@email.com');

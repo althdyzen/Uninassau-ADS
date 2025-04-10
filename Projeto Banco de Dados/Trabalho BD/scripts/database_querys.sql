@@ -73,3 +73,36 @@ FROM
     JOIN Produtos p ON a.id_produto = p.id_produto
 GROUP BY
     a.id_produto;
+
+-- Fornedor de cada produto
+SELECT 
+    p.id_produto, 
+    p.nome, 
+    f.nome AS fornecedor
+FROM 
+    Produtos p
+    JOIN Fornecedores f ON p.id_fornecedor = f.id_fornecedor;
+
+-- Pesquisa o produto pelo nome
+SELECT
+    id_produto,
+    nome,
+    preco
+FROM
+    Produtos
+WHERE
+    nome LIKE "%monitor%";
+
+-- Metodo de pagamento do pedido e o item
+SELECT
+    pd.nome,
+    p.id_pagamento,
+    p.id_pedido,
+    p.valor,
+    p.data_pagamento
+FROM
+    Pagamentos p
+    JOIN Itens_pedido ip ON ip.id_pedido = p.id_pedido
+    JOIN Produtos pd ON ip.id_produto = pd.id_produto
+WHERE
+    forma_pagamento = 'Pix';
