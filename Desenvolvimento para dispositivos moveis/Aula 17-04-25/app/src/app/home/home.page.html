@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Header
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <h1>Diretivas estruturais - ngIf</h1>
+    <!-- 1 - Forma -->
+    <div>
+        <p *ngIf="logged">Logado</p>
+        <p *ngIf="!logged" mudaCor>Nâo logado</p>
+    </div>
+
+    <!-- 2 - Forma -->
+    <!-- <p *ngIf="logged else loggedOut">Logado</p>
+    <ng-template #loggedOut>
+        Nâo logado
+    </ng-template> -->
+
+</ion-content>
